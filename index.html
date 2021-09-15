@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Form</title>
+        <link rel="stylesheet" href="css/style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+        <script type="text/javascript" >
+      
+      $(document).ready(function() {
+      $("#submit").click(function() {
+      var name = $("#name").val();
+      var email = $("#email").val();
+      var password = $("#password").val();
+      var cpassword = $("#cpassword").val();
+      var phone = $("#phone").val();
+      if (name == '' || email == '' || password == '' || cpassword == ''||phone==''){
+      alert("Please fill all fields...!!");
+      }else if(!phone.match('[0-9]{10}')){
+        alert("Enter valid phone number");
+      }else if ((password.length) < 8) {
+      alert("Password should atleast 8 character in length...!");
+      }  else if (!(password).match(cpassword)) {
+      alert("Your passwords don't match. Try again?");
+      }else {
+       alert("sucessfully submitted");
+      }
+      });
+      });
+
+
+        </script>
+    </head>
+    <body>
+
+      <form id="Form1" action="index.html" method="post">
+        <h1> Sign Up </h1>
+
+        <fieldset>
+
+
+
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required >
+
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+
+          <label for="phone">Phone:</label>
+          <input type="tel" minlength="10" maxlength="10" id="phone" name="phone" required>
+
+
+          <label for="password">Password:</label>
+          <input type="password" id="password"       name="password" required>
+          <label for="password"> Repeat Password:</label>
+          <input type="password" id="cpassword"       name="cpassword" required>
+
+
+        </fieldset>
+
+
+        <button id="submit" type="submit">Submit</button>
+
+       </form>
+
+
+    </body>
+</html>
